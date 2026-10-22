@@ -20,6 +20,7 @@ import torch
 
 BERT_DIR = os.environ.get("BERT_DIR", "bert_best")
 BERT_REPO = os.environ.get("BERT_REPO", "")          # e.g. "username/police-narrative-bert" on Hugging Face
+BERT_GDRIVE_ID = os.environ.get("BERT_GDRIVE_ID", "")  # alternative: file ID of a public bert_best_model.zip on Google Drive
 RAG_DIR = os.environ.get("RAG_DIR", "rag_outputs" if os.path.isdir("rag_outputs") else ".")
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MAX_LEN = 320
@@ -40,6 +41,19 @@ def bert_path():
     if BERT_REPO:
         from huggingface_hub import snapshot_download
         return snapshot_download(BERT_REPO, token=os.environ.get("HF_TOKEN") or None)
+    if BERT_GDRIVE_ID:
+        import gdown, zipfile
+        os.makedirs(BERT_DIR, exist_ok=True)
+        zip_path = gdown.download(id=BERT_GDRIVE_ID, output="bert_best_model.zip", quiet=True)
+        if not zip_path or not zipfile.is_zipfile(zip_path):
+            raise RuntimeError("Google Drive download failed – check the file is shared as 'Anyone with the link'")
+        zipfile.ZipFile(zip_path).extractall(BERT_DIR)
+        os.remove(zip_path)
+        if not os.path.exists(os.path.join(BERT_DIR, "config.json")):          # zip contained a sub-folder
+            sub = [d for d in os.listdir(BERT_DIR) if os.path.exists(os.path.join(BERT_DIR, d, "config.json"))]
+            if sub:
+                return os.path.join(BERT_DIR, sub[0])
+        return BERT_DIR
     return None
 
 
@@ -214,16 +228,19 @@ with st.sidebar:
                    "answer (no language model on this host).")
     gate = st.checkbox("Refuse when no relevant passage is found", value=True)
     st.divider()
-    st.caption(f"Device: {'GPU – ' + torch.cuda.get_device_name(0) if DEVICE == 'cuda' else 'CPU (answers will be slow)'}")
+    if DEVICE == "cuda":
+        st.caption(f"Device: GPU – {torch.cuda.get_device_name(0)}")
+    else:
+        st.caption("Device: CPU" + (" (generated answers take 20–60 s)" if USE_LLM else ""))
 
 missing = []
 if not os.path.exists(os.path.join(RAG_DIR, "chunks.json")):
     missing.append("rag_outputs/chunks.json")
 try:
     if bert_path() is None:
-        missing.append("bert_best/ (or set BERT_REPO)")
+        missing.append("bert_best/ (or set BERT_REPO or BERT_GDRIVE_ID)")
 except Exception as e:
-    missing.append(f"BERT model from {BERT_REPO} ({e.__class__.__name__})")
+    missing.append(f"BERT model download ({e.__class__.__name__}: {e})")
 if missing:
     st.error("Missing: " + ", ".join(missing) + ". Unzip bert_best_model.zip into `bert_best/` and "
              "rag_outputs.zip into `rag_outputs/` next to app.py, or set BERT_REPO to the Hugging Face model repo.")
@@ -248,7 +265,15 @@ with tab_cls:
         labels, probs, n_tok = classify(clean)
         pred = labels[int(probs.argmax())]
         st.markdown(f"### Predicted: **{pred}**  ·  confidence {probs.max():.0%}")
-        st.bar_chart(pd.DataFrame({"probability": probs}, index=labels))
+        import altair as alt
+        chart_df = pd.DataFrame({"category": labels, "probability": [float(p) for p in probs]})
+        chart_df["label"] = chart_df.probability.map(lambda p: f"{p:.0%}")
+        bars = alt.Chart(chart_df).mark_bar().encode(
+            x=alt.X("probability:Q", scale=alt.Scale(domain=[0, 1]), axis=alt.Axis(format="%", title="probability")),
+            y=alt.Y("category:N", sort=labels, title=None),
+            color=alt.condition(alt.datum.category == pred, alt.value("#e4572e"), alt.value("#9aa5b1")))
+        text = bars.mark_text(align="left", dx=4).encode(text="label:N", color=alt.value("#888888"))
+        st.altair_chart((bars + text).properties(height=150), use_container_width=True)
         if n_tok > MAX_LEN:
             st.warning(f"This narrative has {n_tok} tokens; only the first {MAX_LEN} were read by the model.")
         if probs.max() < 0.6:

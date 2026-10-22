@@ -8,3 +8,4 @@ huggingface_hub>=0.24
 streamlit>=1.37
 numpy
 pandas
+gdown>=5.1
