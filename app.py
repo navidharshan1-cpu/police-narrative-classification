@@ -221,6 +221,9 @@ BASE_CLASS = {"Stopped": {"precision": 0.847, "recall": 0.884, "f1": 0.865},
               "Observed": {"precision": 0.642, "recall": 0.553, "f1": 0.594}}
 CM_BASE = [[387, 40, 11], [45, 98, 18], [25, 17, 52]]   # rows = true class, columns = predicted
 CM_BERT = [[377, 54, 7], [36, 116, 9], [15, 25, 54]]
+RAG_ACCURACY = ("Assistant accuracy on 18 test questions: right passage ranked first 88.9% (hit@1), in the top 5 "
+                "100% (hybrid retrieval)" + ("; grounded answers correct 88.9%, out-of-scope questions refused 100%."
+                                             if os.environ.get("APP_MODE", "full").lower() != "lite" else "."))
 
 # ------------------------------------------------------------------ layout
 st.title("Police Narrative Classifier & Policy Assistant")
@@ -276,6 +279,10 @@ with tab_cls:
     choice = st.selectbox("Example", list(EXAMPLES))
     text = st.text_area("Narrative", value=EXAMPLES[choice], height=170,
                         placeholder="e.g. Officers stopped the vehicle for…")
+    true_label = st.selectbox("True category (optional – pick it if you know it, to score this prediction)",
+                              ["Unknown"] + CLASSES)
+    if "scores" not in st.session_state:
+        st.session_state.scores = []          # (true, predicted) pairs for this session
     c1, c2 = st.columns([1, 1])
     explain = c2.checkbox("Explain with Rule 323", value=True)
     if c1.button("Classify", type="primary", disabled=not text.strip()):
@@ -293,9 +300,22 @@ with tab_cls:
         text = bars.mark_text(align="left", dx=4).encode(text="label:N", color=alt.value("#888888"))
         st.altair_chart((bars + text).properties(height=150), use_container_width=True)
         pc = BERT_CLASS[pred]
-        st.caption(f"How reliable is a **{pred}** prediction? On the 693 test narratives, when BERT predicts {pred} it "
-                   f"is right **{pc['precision']:.1%}** of the time (precision), and it finds **{pc['recall']:.1%}** of "
-                   f"all true {pred} narratives (recall). Overall test accuracy: **79.4%**.")
+        st.markdown(f"**Model accuracy for this output** – measured on the 693 test narratives")
+        a1, a2, a3, a4 = st.columns(4)
+        a1.metric("Overall accuracy", "79.4%")
+        a2.metric(f"Precision ({pred})", f"{pc['precision']:.1%}", help=f"When BERT predicts {pred}, how often it is right")
+        a3.metric(f"Recall ({pred})", f"{pc['recall']:.1%}", help=f"Share of true {pred} narratives that BERT finds")
+        a4.metric(f"F1 ({pred})", f"{pc['f1']:.3f}")
+        if true_label != "Unknown":
+            st.session_state.scores.append((true_label, pred))
+            if true_label == pred:
+                st.success(f"✓ Correct – the true category is {true_label}.")
+            else:
+                st.error(f"✗ Incorrect – the true category is {true_label}, BERT predicted {pred}.")
+        if st.session_state.scores:
+            n = len(st.session_state.scores)
+            right = sum(t == p for t, p in st.session_state.scores)
+            st.metric("Your session accuracy", f"{right / n:.0%}", f"{right} of {n} scored predictions correct")
         if n_tok > MAX_LEN:
             st.warning(f"This narrative has {n_tok} tokens; only the first {MAX_LEN} were read by the model.")
         if probs.max() < 0.6:
@@ -310,6 +330,9 @@ with tab_cls:
             show_sources(hits)
         st.caption("The prediction reproduces how records were labelled; it is not a judgement on whether any "
                    "police action was justified or lawful.")
+    if st.session_state.get("scores") and st.button("Reset session accuracy"):
+        st.session_state.scores = []
+        st.rerun()
 
 # ---- Tab 2
 with tab_chat:
@@ -338,6 +361,7 @@ with tab_chat:
                 st.caption("No passage was relevant enough, so the language model was not called.")
             else:
                 show_sources(hits)
+            st.caption(RAG_ACCURACY)
         st.session_state.chat.append(("assistant", ans, None if gated else hits))
     if st.session_state.chat and st.button("Clear conversation"):
         st.session_state.chat = []
