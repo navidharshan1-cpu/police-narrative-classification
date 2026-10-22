@@ -1,0 +1,6 @@
+streamlit>=1.37
+transformers>=4.45
+sentence-transformers>=3.0
+huggingface_hub>=0.24
+numpy
+pandas

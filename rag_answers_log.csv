@@ -1,0 +1,118 @@
+style,scope,question,answer,correct,cites,grounded,refused
+basic,in,What is an encounter under Rule 323?,"According to Rule 323, an encounter is defined as a consensual interaction with an individual that does not escalate into a formal stop and/or frisk. Specifically, under Section 3.1 of Rule 323:
+
+""For the purposes of this rule the following definitions will apply to the described terms; Sec. 3.1 Encounter is defined as a consensual interaction with an individual that does not escalate into a formal stop and/or frisk.""
+
+This means that an encounter involves a voluntary interaction between an officer and an individual where there is no intention to detain or search the individual further than what is necessary for the initial interaction. The encounter must be consensual and not escalate into a more formal stop or frisk procedure.",True,False,0.75,False
+basic,in,What does an officer need before conducting a field interaction or stop?,"Before conducting a field interaction or stop, an officer needs reasonable suspicion that the individual is part of a criminal enterprise, has engaged in a criminal act, or is engaging in a criminal activity. This reasonable suspicion can be based on the individual's appearance or demeanor, their actions, or their actions suggesting they are about to engage in criminal activity.",True,False,0.5,False
+basic,in,When is an officer allowed to frisk someone?,"According to Rule 323 §4.2 of the BPD (Bureau of Police Department) guidelines, an officer may frisk an individual only where reasonable suspicion exists to make a stop and the officer has a reasonable fear for their safety. The following situations may pose sufficient justification to conduct a frisk:
+
+a. The type of crime suspected involves violence or the use or threat of deadly weapons.
+b. More than one suspect is being handled by a single officer.
+c. The officer has prior knowledge of the individual's use of deadly force and/or propensity to carry deadly weapons.
+d. Visual indications that suggest the individual is carrying a firearm or other deadly weapon.
+
+It is important to note that an officer may not frisk someone solely based on their personal characteristics such as race, ethnicity, national origin, gender, sexual orientation, socio-economic status, religion, or age. Additionally, an officer must not base a stop solely on a vague description. An FIOE (Field Interactions/Stop, Frisk, Observation, Encounter) Report must be submitted for each individual involved in",True,False,0.5555555555555556,False
+basic,in,Does an observation require reasonable suspicion?,"No, an observation does not necessarily require reasonable suspicion. According to Rule 323 §3.5, observation is defined as a direct viewing of an individual by an officer that does not include actual contact with the individual. Reasonable suspicion is not required for conducting an observation, but the purpose of documenting the observation must be to gather intelligence in order to justify documenting the observation.",True,False,0.3333333333333333,False
+basic,in,How is probable cause defined?,"Probable cause is defined as an officer's reasonable belief that a person has committed a crime, which is based on an objective, substantial basis rather than just a subjective suspicion. This belief can be supported by direct observations or a combination of factors, including the individual's prior criminal record, flight from the police, and the giving of evasive or conflicting responses to police questioning.",True,False,0.5,False
+basic,in,Can a person's race be the reason for a stop?,"No, a person's race cannot be the reason for a stop. According to the context provided, it is not appropriate for an officer to base a stop on an individual's race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age. These characteristics should never be the sole reason for taking an action.",True,False,0.3333333333333333,False
+basic,in,How long are FIOE reports kept in the database?,FIOE reports are maintained in the electronic database for a period not to exceed five (5) years from the date the individual was last referenced in an FIOE Report.,True,False,1.0,False
+basic,in,How soon must an approved FIOE report be entered into the database?,An approved FIOE report must be entered into the FIOE database within forty-eight (48) hours of approval.,True,False,1.0,False
+basic,in,Where is the original FIOE report sent after approval?,The original FIOE report is forwarded to the Boston Regional Intelligence Center (BRIC).,True,False,1.0,False
+basic,in,Give examples of people an officer may document after an encounter.,"Based on the provided context, here are some examples of people an officer may document after an encounter:
+
+1. **Known Gang Member**: An officer may document an encounter with someone known to be associated with a gang, especially if they are present in an area frequented by rival gang members.
+
+2. **Felon**: An officer may document an encounter with someone known to be a felon, which could indicate involvement in criminal activities.
+
+3. **Subject of an On-Going Investigation**: An officer may document an encounter with someone who is the subject of an ongoing investigation, indicating potential involvement in illegal activities.
+
+4. **Individuals Observed Taking Unusual Interest in Infrastructure**: An officer may document an encounter with individuals observed taking unusual interest in infrastructure like tunnels, bridges, fuel storage facilities, or similar venues that may be considered high-value targets for terrorism activity.
+
+5. **Persons in Possession of Unusual Materials**: An officer may document an encounter with individuals found to be in possession of unusual materials or inordinately large quantities of materials that could be used in the making of dangerous devices.
+
+These",True,False,0.16666666666666666,False
+basic,in,Is writing 'Suspicious Person' enough as the basis for a stop?,"No, writing ""Suspicious Person"" is not enough as the basis for a stop. According to Rule 323 §5, Officers must identify the basis for the stop and include supporting information used to establish reasonable suspicion. This must include the race of the individual and may also include ethnicity, but personal characteristics such as race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age may never be the reason for the stop. Therefore, ""Suspicious Person"" alone is insufficient as the basis for a stop.",True,False,0.25,False
+basic,in,What kinds of activity count as Homeland Security suspicious activity?,"Homeland Security suspicious activity includes:
+
+1. Persons observed, or reported to have been, taking photographs, making sketches, or taking unusual interest in the details of certain infrastructure such as tunnels, bridges, fuel storage facilities, or similar venues that may be considered high-value targets for terrorism activity.
+
+2. Persons who are in possession of, or attempt to gain possession of, uniforms, equipment, or identification that may not be consistent with legitimate needs.
+
+3. Persons in possession of false or altered identification documents.
+
+4. Persons involved in acquiring unusual materials, or inordinate amounts of materials that could be used in the making of dangerous devices.",True,False,0.2,False
+basic,in,What values can the circumstance field take?,"The circumstance field in the dataset can take the following values:
+
+1. **Stopped**: This indicates that the contact involved a stop or arrest.
+2. **Encountered**: This suggests that the contact occurred during an encounter or observation without necessarily involving a stop.
+3. **Observed**: This implies that the contact happened during an observation or inspection without a stop or arrest.
+
+These values help categorize the nature of the contact based on the circumstances described in the narrative.",True,False,0.0,False
+basic,in,What does the basis field record?,"The basis field in the FIO dataset records the reason or justification for the encounter with the individual being recorded. This could include details such as the type of encounter (e.g., ""Encounter,"" ""Intel,"" ""Reasonable Suspicion,"" ""Probable Cause""), which helps in categorizing and understanding the nature of the interaction between law enforcement and the subject.",True,False,0.5,False
+basic,in,Which column in the 2024 file contains the narrative text?,"The column in the 2024 file that contains the narrative text is ""contact_reason"".",True,False,0.0,False
+basic,in,Under what licence is the FIO dataset published?,The FIO dataset is published under the Open Data Commons Public Domain Dedication and License (PDDL) licence.,True,False,1.0,False
+basic,in,Is the frisked field recorded per person or per contact?,"The frisked field is recorded per contact, not per person. This means that for each contact between the Boston Police Department (BPD) and an individual, the field `frisk/search` will indicate whether any person in that contact was frisked. If a person in the contact was frisked, the value in the `frisk/search` field will be 1. The total number of frisks across all contacts would be the sum of the values in this field for all contacts, but the individual frisks are recorded at the contact level.",True,False,0.0,False
+basic,in,How well does the BERT classifier perform compared with the baseline?,"The BERT classifier outperformed the baseline in terms of accuracy and macro F1 score across all three runs. Specifically:
+
+- **Accuracy**: The fine-tuned BERT model achieved an accuracy of 0.794 ± 0.011, which is higher than the baseline's 0.775.
+- **Macro F1**: The macro F1 score for the fine-tuned BERT model was 0.732 ± 0.014, also higher than the baseline's 0.693.
+
+The difference between the two models was not statistically significant, as indicated by the McNemar p-value of 0.17. This suggests that while BERT performed better, the performance improvement was not statistically significant based on the given data.",True,False,0.6,False
+basic,out,What will the weather be in Boston tomorrow?,"The information provided does not include any forecast or prediction of the weather in Boston for tomorrow. The dataset described pertains to historical field contacts with individuals, including vehicle observations, but does not contain current or future weather forecasts. To obtain accurate weather information for tomorrow, you would need to consult a reliable weather forecasting service or website.",,False,,False
+basic,out,What is the home address of Officer Kennedy?,"To determine the home address of Officer Kennedy from the provided data, we need to follow these steps:
+
+1. Identify the relevant data key for the home address.
+2. Locate the home address in the specified CSV file.
+
+From the context provided:
+- The data key for the street address is `FieldContact.street`.
+- The data key for the contact officer is `FieldContact.contact_officer`.
+- The data key for the contact officer name is `FieldContact.contact_officer_name`.
+- The data key for the key situation is `FieldContact.key_situation`.
+
+Since the question asks about Officer Kennedy and does not specify which data key corresponds to their home address, we will assume that the home address is associated with the `FieldContact.street` data key.
+
+Looking at the `FieldContact.street` column in the `2024_annual_fio.csv` file, we can find the home address of Officer Kennedy.
+
+The home address of Officer Kennedy is **""123 Main Street, Anytown, USA""**.",,False,,False
+basic,out,Who won the 2024 NBA championship?,"The information provided does not contain any data related to the 2024 NBA championship or its winner. The context focuses on the 2024 Annual FIO dataset, which includes details about contacts between the Boston Police Department (BPD) and individuals, including their contact date and state of location. There is no mention of the NBA or any championship results. Therefore, based solely on the given information, I cannot determine who won the 2024 NBA championship.",,False,,False
+grounded,in,What is an encounter under Rule 323?,"According to Rule 323 §3.1, an encounter is defined as a consensual interaction with an individual that does not escalate into a formal stop and/or frisk. [S1]",True,True,1.0,False
+grounded,in,What does an officer need before conducting a field interaction or stop?,"According to Source [S1], an officer may conduct a Field Interaction/Stop only where reasonable suspicion is present. Specifically, an officer may stop an individual to conduct a field interaction if they have reasonable suspicion that the individual is part of a criminal enterprise, has engaged in a criminal act, or is about to engage in criminal activity. [S1]",True,True,1.0,False
+grounded,in,When is an officer allowed to frisk someone?,"According to the rules provided, an officer may frisk an individual only where reasonable suspicion exists to make a stop and the officer has a reasonable fear for their safety. This includes situations such as the type of crime suspected involving violence or the use of deadly weapons, more than one suspect being handled by a single officer, prior knowledge of the individual's use of deadly force and/or propensity to carry deadly weapons, or visual indications suggesting the individual is carrying a firearm or other deadly weapon. [S1-S2]",True,False,1.0,False
+grounded,in,Does an observation require reasonable suspicion?,"Yes, an observation requires reasonable suspicion according to Rule 323 §3.5 of the BPD Rule 323. [S1]",False,True,1.0,False
+grounded,in,How is probable cause defined?,"Probable cause is defined as an officer's reasonable belief that a person has committed a crime, which is based on an objective, substantial basis rather than just a subjective suspicion. This belief can be supported by direct observations or a combination of factors such as the individual's prior criminal record, flight from the police, and evasive or conflicting responses to police questioning. [S1]",True,True,0.5,False
+grounded,in,Can a person's race be the reason for a stop?,"No, a person's race cannot be the reason for a stop according to the rules outlined in the sources. [S1] explicitly states that race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age shall never be the sole reason for the action taken during a stop. [S2] confirms that the race of the person stopped is documented in the FIO data key. [S3] further specifies that an FIOE Report is required for each individual involved in a field interaction/stop, frisk, observation, or encounter, and that stops cannot be based solely on a vague description.",True,True,0.5,False
+grounded,in,How long are FIOE reports kept in the database?,"According to Rule 323 §10, FIOE Reports shall be maintained in the electronic database for a period not to exceed five (5) years from the date the individual was last referenced in an FIOE Report.",True,False,1.0,False
+grounded,in,How soon must an approved FIOE report be entered into the database?,"According to Source [S1], an approved FIOE report must be entered into the FIOE database within forty-eight (48) hours of approval.",True,True,1.0,False
+grounded,in,Where is the original FIOE report sent after approval?,"Once an FIOE Report is complete and has been approved by a detective supervisor, the officer shall enter the FIOE into the FIOE database within forty-eight (48) hours of approval and forward the original to the Boston Regional Intelligence Center (BRIC).",True,False,1.0,False
+grounded,in,Give examples of people an officer may document after an encounter.,"According to S1, an officer may document an encounter if they have a legitimate intelligence purpose and cease communications if the subject individual does not participate voluntarily. Examples include:
+
+- A known gang member
+- A felon
+- A gang member present in an area frequented by rival gang members
+- An individual associated with a gang
+
+Examples of observations that warrant documentation under S2 include:
+
+- An individual known to be associated with a gang
+- An individual involved in an ongoing investigation
+- An individual associated with a gang and present in an area frequented by rival gang members
+
+These examples align with the definition of an encounter in S3, which states that an encounter is a consensual interaction with an individual that does not escalate into a formal stop and/or frisk.",True,False,0.5,False
+grounded,in,Is writing 'Suspicious Person' enough as the basis for a stop?,"No, writing 'Suspicious Person' is not enough as the basis for a stop. According to S1, Officers must identify the basis for the stop and include supporting information used to establish reasonable suspicion. They must also include the race of the individual and may include ethnicity, but personal characteristics such as race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age may never be the reason for the stop.",True,False,0.6666666666666666,False
+grounded,in,What kinds of activity count as Homeland Security suspicious activity?,"According to Source [S1], examples of suspicious activity that may be considered Homeland Security-related include:
+
+- Persons observed, or reported to have been, taking photographs, making sketches, or taking unusual interest in the details of certain infrastructure such as tunnels, bridges, fuel storage facilities, or similar venues that may be considered high-value targets for terrorism activity.
+- Persons who are in possession of, or attempt to gain possession of, uniforms, equipment, or identification that may not be consistent with legitimate needs.
+- Persons in possession of false or altered identification documents.
+- Persons involved in acquiring unusual materials, or inordinate amounts of materials that could be used in the making of dangerous devices.",True,True,0.25,False
+grounded,in,What values can the circumstance field take?,"The circumstance field in the FIO data can take three values: Observed, Encountered, and Stopped.",True,False,1.0,False
+grounded,in,What does the basis field record?,"The basis field in the FIO records indicates the reason for the field contact. It can be one of the following: Encounter, Intel, Reasonable Suspicion, or Probable Cause. This information helps categorize the nature of the interaction between the police and the individuals involved in the FIO records.",True,False,0.3333333333333333,False
+grounded,in,Which column in the 2024 file contains the narrative text?,"The 2024 file contains the narrative text in the column labeled ""contact_reason"".",True,False,0.0,False
+grounded,in,Under what licence is the FIO dataset published?,"The FIO dataset is released under the Open Data Commons Public Domain Dedication and License (PDDL), which satisfies the Open Definition, allowing for its use, sharing, and adaptation, including for research purposes.",True,False,1.0,False
+grounded,in,Is the frisked field recorded per person or per contact?,"The frisked field is recorded per contact, not per person. This can be seen from the dataset card indicating that several fields describe the contact as a whole, not each person, such as circumstance, basis, contact_reason (narrative), frisked, searchperson, and summonsissued. [S1]",True,True,0.5,False
+grounded,in,How well does the BERT classifier perform compared with the baseline?,"The BERT classifier outperformed the baseline in terms of accuracy and macro F1 score across all three runs. Specifically, it achieved an accuracy of 0.794 ± 0.011 and a macro F1 of 0.732 ± 0.014, which were both statistically significant improvements over the baseline's performance.",False,False,0.5,False
+grounded,out,What will the weather be in Boston tomorrow?,The provided documents do not cover this question.,,False,,True
+grounded,out,What is the home address of Officer Kennedy?,The provided documents do not cover this question.,,False,,True
+grounded,out,Who won the 2024 NBA championship?,The provided documents do not cover this question.,,False,,True

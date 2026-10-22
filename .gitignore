@@ -1,0 +1,9 @@
+# raw data (contains officer names) and large model files
+2024_annual_fio*.csv
+bert_best/
+outputs/
+rag_outputs/
+*.zip
+*.safetensors
+__pycache__/
+.ipynb_checkpoints/

@@ -1,0 +1,3 @@
+model,accuracy,macro_precision,macro_recall,macro_f1,best_C,val_macro_f1
+TF-IDF + LR,0.775,0.707,0.682,0.693,10,0.738
+TF-IDF + LR (label words masked),0.736,0.655,0.627,0.639,10,0.68

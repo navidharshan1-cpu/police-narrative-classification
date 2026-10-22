@@ -1,0 +1,14 @@
+pandas
+numpy
+scipy
+scikit-learn
+matplotlib
+spacy
+torch
+transformers
+accelerate
+sentence-transformers
+faiss-cpu
+pypdf
+openpyxl
+streamlit

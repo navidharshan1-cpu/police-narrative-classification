@@ -1,0 +1,40 @@
+name: Deploy to Hugging Face Space
+
+# Copies the app and the Space configuration to the Hugging Face Space named in the
+# repository variable HF_SPACE (e.g. "username/police-narrative-app"), using the HF_TOKEN secret.
+on:
+  push:
+    branches: [main]
+    paths: ["app.py", "chunks.json", "rag_config.json", "Dockerfile", "space_README.md", "space_requirements.txt",
+            ".github/workflows/deploy-hf-space.yml"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ vars.HF_SPACE != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Assemble the Space
+        run: |
+          mkdir build
+          cp app.py chunks.json rag_config.json Dockerfile build/
+          cp space_README.md build/README.md
+          cp space_requirements.txt build/requirements.txt
+          ls -R build
+      - name: Upload to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          pip install -q huggingface_hub
+          python -c "
+          import os
+          from huggingface_hub import upload_folder
+          upload_folder(repo_id=os.environ['HF_SPACE'], repo_type='space', folder_path='build',
+                        token=os.environ['HF_TOKEN'], commit_message='Deploy from GitHub ${{ github.sha }}')
+          print('Deployed to https://huggingface.co/spaces/' + os.environ['HF_SPACE'])
+          "

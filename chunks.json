@@ -1,0 +1,446 @@
+[
+ {
+  "id": "R323-S1a",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a71",
+  "text": "BPD Rule 323 \u2013 Section 1: General Considerations. Section 1: GENERAL CONSIDERATIONS This rule has been developed to assist officers in ensuring that intelligence and information is gathered only on persons suspected of engaging in criminal activity or persons associating with those suspected of criminal activity. Additionally, while this rule offers guidance on those stops that implicate an individual's Fourth Amendment right, it also clarifies how officers should document interactions with individuals suspected of criminal activity, or associates of those individuals, that amount to mere encounters or observations. A Field Interaction/Observation/Encounter (\"FIOE\") Report provides officers with the mechanism to document such interactions and describe the conditions and relative circumstances involved in those interactions. The FIOE Report is a law enforcement sensitive report and must be treated with care and caution to avoid unnecessary dissemination unless in support of a legitimate law enforcement purpose. It is the responsibility of all officers throughout the Department to be familiar with the considerations and elements of this important law enforcement activity and the requirements of this rule."
+ },
+ {
+  "id": "R323-S1b",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a71",
+  "text": "BPD Rule 323 \u2013 Section 1: General Considerations. Police officers are encouraged, as part of the Department's community policing philosophy, to communicate and develop relationships with those individuals as part of their fundamental duties. These communications that take place as part of officers' fundamental duties do not warrant documentation in the form of a FIOE Report; however, if an officer finds him/herself in a situation outlined herein, such documentation is required."
+ },
+ {
+  "id": "R323-S2a",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a72",
+  "text": "BPD Rule 323 \u2013 Section 2: Purpose. Section 2: PURPOSE The FIOE Report is a mechanism to allow the Department to document and accumulate up-to-date information concerning known criminals and their associates, the clothing they may be wearing, the vehicles they use, the places they frequent, and persons suspected of unlawful design. For all field interactions/stops and/or frisks, the FIOE Report must state the basis for the stop, including supporting information used to establish reasonable suspicion. The FIOE Report for observations and/or encounters must state the intelligence purpose for the action. An individual's race, ethnicity , national original, gender, sexual orientation/identity, socio-economic status, religion, and/or age shall never serve as the basis for a field interaction/stop, frisk, observation or encounter. The information gathered in an FIOE Report may prove useful in support of investigations or intelligence development. Because it is documentary evidence, it may corroborate oral testimony about an individual, vehicle, associations, or other information of value to a prosecution."
+ },
+ {
+  "id": "R323-S2b",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a72",
+  "text": "BPD Rule 323 \u2013 Section 2: Purpose. The ability to effectively document a field interaction will often become a vital piece of information when viewed in the context of other known information or evidence."
+ },
+ {
+  "id": "R323-3.1",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.1",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Section 3: DEFINITIONS For the purposes of this rule the following definitions will apply to the described terms; Sec. 3.1 Encounter is defined as a consensual interaction with an individual that does not escalate into a formal stop and/or frisk. If you encounter an individual with the purpose of gathering intelligence, you must document the interaction."
+ },
+ {
+  "id": "R323-3.2",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.2",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.2 Field Interaction/Stop is defined as the brief detainment of an individual, whether on foot or in a vehicle, based on reasonable suspicion for the purposes of determining the individual's identity and resolving the officer's suspicions."
+ },
+ {
+  "id": "R323-3.3",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.3",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.3 Frisk is defined as the pat down of the outer clothing, and the area within the immediate control of the person for weapons. An officer may only conduct a frisk when s/he has objective articulable facts which lead him/her to believe that the person with whom s/he is dealing may be armed, and thus poses a threat to the officer or others."
+ },
+ {
+  "id": "R323-3.4",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.4",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.4 Intelligence consists of stored information on activities, associations of individuals, organizations, business es, and/or groups who are either (1) suspected of actual or attempted planning, organizing, financing, or commission of criminal acts or are (2) suspected of being associated with criminal activity with known or suspected criminals."
+ },
+ {
+  "id": "R323-3.5",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.5",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.5 Observation is defined as a direct viewing of an individual by an officer that does not include actual contact with the individual. Reasonable suspicion is not required to conduct an observation of an individual; however, the purpose of documenting the observation must be to gather intelligence in order to justify documenting the observation."
+ },
+ {
+  "id": "R323-3.6",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.6",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.6 Probable Cause exists when an officer reasonably believes a person has committed a crime. The belief is reasonable when it rests on an objective, substantial basis as contrasted with a mere subjective suspicion. Probable cause may be based on direct observations or a combination of factors, including, but not limited to, the individual's prior criminal record, flight from the police, and the giving of evasive or conflicting responses to police questioning."
+ },
+ {
+  "id": "R323-3.7",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.7",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.7 Reasonable Suspicion exists when an officer, based on specific and articulable facts, and the rational inference from those facts, believes that an individual has committed, is committing, or is about to commit a criminal offense."
+ },
+ {
+  "id": "R323-3.8",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a73.8",
+  "text": "BPD Rule 323 \u2013 Section 3: Definitions. Sec. 3.8 Search is conducted for the specific purpose of seizing evidence. An officer must have probable cause in order to conduct a search of an individual or his/her property."
+ },
+ {
+  "id": "R323-S4",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a74",
+  "text": "BPD Rule 323 \u2013 Section 4: Situations Warranting the Completion of an FIOE Report. Section 4: SITUATIONS WARRANTING THE COMPLETION OF AN FIOE REPORT An FIOE Report shall be submitted subsequent to a field interaction/stop, a frisk, an observation, or an encounter, as defined in Section 3. An FIOE Report shall be submitted for each individual involved in the field interaction/stop, frisk, observation or encounter. A stop cannot be based on an individual's personal characteristics such as race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age. Additionally, officers shall not stop someone based solely on a vague description (i.e., black male age 18-25 years old). An FIOE Report is required in the following circumstances:"
+ },
+ {
+  "id": "R323-4.1",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a74.1",
+  "text": "BPD Rule 323 \u2013 Section 4: Situations Warranting the Completion of an FIOE Report. Sec. 4.1 Field Interaction/Stop \u2014An Officer may stop an individual to conduct a field interaction only where reasonable suspicion is present. An officer may conduct a Field Interaction/Stop when: a. The appearance or demeanor of an individual suggests that s/he is part of a criminal enterprise or has engaged in a criminal act; b. The actions of an individual suggest that s/he is engaging in a criminal activity; or c. The actions of an individual suggest that s/he is about to engage in criminal activity."
+ },
+ {
+  "id": "R323-4.2",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a74.2",
+  "text": "BPD Rule 323 \u2013 Section 4: Situations Warranting the Completion of an FIOE Report. Sec. 4.2 Frisk \u2014An Officer may frisk an individual only where reasonable suspicion exists to make a stop and the officer has a reasonable fear for his/her safety. The following is a list of occasions that may pose sufficient justification to conduct a frisk. This is not meant to be an exhaustive list and simply serves as examples of possible factors to consider. a. The type of crime suspected involves violence or the use or threat of deadly weapons; b. More than one (1) suspect being handled by a single officer; c. The Officer has prior knowledge of the individual's use of deadly force and/or propensity to carry deadly weapons; or d. Visual indications that suggest that the individual is carrying a firearm or other deadly weapon."
+ },
+ {
+  "id": "R323-4.3",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a74.3",
+  "text": "BPD Rule 323 \u2013 Section 4: Situations Warranting the Completion of an FIOE Report. Sec. 4.3 Observation \u2014An Officer may document an observation of an individual(s) where the information collected serves a legitimate intelligence purpose. This is not meant to be an exhaustive list and simply serves as examples of possible factors to consider. For example, an officer may complete an FIOE Report when s/he observes: a. An individual known to be associated with a gang; b. An individual that is the subject of an on-going investigation; or c. An individual known to be associated with a gang and present in an area frequented by rival gang members."
+ },
+ {
+  "id": "R323-4.4",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a74.4",
+  "text": "BPD Rule 323 \u2013 Section 4: Situations Warranting the Completion of an FIOE Report. Sec. 4.4 Encounter \u2014An officer may approach an individual, either on foot or in his/her vehicle, and engage in a voluntary encounter. In order to justify documenting the encounter, the officer must have a legitimate intelligence purpose for the encounter and must cease communications if the subject individual does not participate voluntarily, unless reasonable suspicion exists to escalate the encounter into a field interaction/stop. This is not meant to be an exhaustive list and simply serves as examples of possible factors to consider. For example, an officer may complete an FIOE Report after speaking to an individual that is: a. Known to be associated with a gang; b. Known to the officer to be a felon; c. Known to be associated with a gang and present in an area frequented by rival gang members; or d. Present in an area at an inappropriate hour of the day or night."
+ },
+ {
+  "id": "R323-S5a",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a75",
+  "text": "BPD Rule 323 \u2013 Section 5: Appropriate Documentation on an FIOE Report. Section 5: APPROPRIATE DOCUMENTATION ON AN FIOE REPORT Regardless of the reason for the FIOE Report, Officers must identify the basis for the stop. This must include supporting information used to establish reasonable suspicion in the event of a field interaction/stop or a frisk or the intelligence purpose when conducting an observation or encounter. It is not sufficient to state \"Suspicious Person\" or \"Investigate Person\" as the basis for the stop. Officers must also include the race of the individual and may also include ethnicity, when appropriate; however, the individual's personal characteristics such as race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age may never be the reason for the stop. It is appropriate for an officer to base a stop on a physical description; however, race, ethnicity, national origin, gender, sexual orientation / identity, socio-economic status, religion, and/or age shall never be the sole reason for the action taken."
+ },
+ {
+  "id": "R323-S5b",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a75",
+  "text": "BPD Rule 323 \u2013 Section 5: Appropriate Documentation on an FIOE Report. The Officer shall also record the time, date, and location of the field interaction/stop, frisk, observation or encounter prior to submitting the FIOE Report."
+ },
+ {
+  "id": "R323-S6",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a76",
+  "text": "BPD Rule 323 \u2013 Section 6: Homeland Security \u2013 Suspicious Activity Documentation. Section 6: HOMELAND SECURITY\u2014SUSPICIOUS ACTIVITY DOCUMENTATION Whenever an officer determines that an individual may be engaged in suspicious activity that relates to Homeland Security the officer shall document the determination and the police response related to the activity on an FIOE Report and Incident Report. Some examples of such suspicious activity may include, but are not limited to, the following; \u2022 Persons observed, or reported to have been, taking photographs, making sketches, or taking unusual interest in the details of certain infrastructure such as tunnels, bridges, fuel storage facilities, or similar venues that may be considered high value targets for terrorism activity. \u2022 Persons who are in possession of, or attempt to gain possession of, uniforms, equipment, or identification that may not be consistent with legitimate needs. \u2022 Persons in possession of false or altered identification documents. \u2022 Persons involved in acquiring unusual materials, or inordinate amounts of materials that could be used in the making of dangerous devices."
+ },
+ {
+  "id": "R323-S7",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a77",
+  "text": "BPD Rule 323 \u2013 Section 7: Submission of FIOE Reports. Section 7: SUBMISSION OF FIOE REPORTS Every on duty police officer shall carry FIOE Forms. FIOE Reports must be completed in ink and submitted to a detective supervisor prior to the end of the officer's tour of duty. The detective supervisor shall then inspect the FIOE Report for legibility, completeness, and articulation of justification for the field interaction, frisk, observation or encounter. Any incomplete or illegible FIOE Reports shall be returned to the submitting officer for correction. No other officer shall make any corrections, additions, or alterations to the FIOE Report. Once an FIOE Report is complete and has been approved by a detective supervisor, the officer shall enter the FIOE into the FIOE database within forty-eight (48) hours of approval and forward the original to the Boston Regional Intelligence Center (BRIC)."
+ },
+ {
+  "id": "R323-S8",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a78",
+  "text": "BPD Rule 323 \u2013 Section 8: Access to FIOE Reports. Section 8: ACCESS TO FIOE REPORTS The Department will provide access to the FIOE Report database for each sworn officer and authorized user. The Information Services Group (ISG) will serve as the administrator of the central database and ensure that users have adequate access and training in the use of the database. Officers will have the following access permissions: \u2022 ADD an FIOE Report directly into the system \u2022 READ all FIOE's within the system \u2022 SEARCH for specific FIOE's within the system \u2022 PRINT FIOE's in order to comply with court discovery or to include in investigative files"
+ },
+ {
+  "id": "R323-S9",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a79",
+  "text": "BPD Rule 323 \u2013 Section 9: Dissemination. Section 9: DISSEMINATION Officers may access the FIOE database to conduct searches or to print FIOE's when there is a legitimate law enforcement purpose for doing so, such as an ongoing investigation or in support of a prosecution. All FIOE Reports ordered by the court to be produced, requested by defense counsel, or requested by a member of the public shall be directed to the Office of the Legal Advisor."
+ },
+ {
+  "id": "R323-S10",
+  "doc": "BPD Rule 323 (2015)",
+  "ref": "Rule 323 \u00a710",
+  "text": "BPD Rule 323 \u2013 Section 10: Retention. Section 10: RETENTION FIOE Reports shall be maintained in the electronic database for a period not to exceed five (5) years from the date the individual was last referenced in an FIOE Report. If an individual does not appear in the FIOE electronic database for five (5) years, all FIOE Reports naming that individual as the subject shall be deleted from the electronic database and any related paper copies shall be destroyed. The five (5) year retention period shall be tolled if an individual is incarcerated and therefore the FIOE Reports related to that individual will not be deleted as a result of inactivity during that time period."
+ },
+ {
+  "id": "KEY-FieldContact-fc_num",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.fc_num",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `fc_num`: Field Contact Number. In 2024_annual_fio.csv this field is the column `fc_num`."
+ },
+ {
+  "id": "KEY-FieldContact-contact_date",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.contact_date",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `contact_date`: Date on which the stop occurred. In 2024_annual_fio.csv this field is the column `contact_date`."
+ },
+ {
+  "id": "KEY-FieldContact-contact_officer",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.contact_officer",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `contact_officer`: Contact Officer's ID. In 2024_annual_fio.csv this field is the column `contact_officer`."
+ },
+ {
+  "id": "KEY-FieldContact-contact_officer_name",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.contact_officer_name",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `contact_officer_name`: Contact Officer's name. In 2024_annual_fio.csv this field is the column `contact_officer_name`."
+ },
+ {
+  "id": "KEY-FieldContact-supervisor",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.supervisor",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `supervisor`: Supervisor's ID number. In 2024_annual_fio.csv this field is the column `supervisor`."
+ },
+ {
+  "id": "KEY-FieldContact-supervisor_name",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.supervisor_name",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `supervisor_name`: Supervisor's name. In 2024_annual_fio.csv this field is the column `supervisor_name`."
+ },
+ {
+  "id": "KEY-FieldContact-street",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.street",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `street`: Street address of location where stop occurred. In 2024_annual_fio.csv this field is the column `street`."
+ },
+ {
+  "id": "KEY-FieldContact-city",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.city",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `city`: City of location where stop occurred. In 2024_annual_fio.csv this field is the column `city`."
+ },
+ {
+  "id": "KEY-FieldContact-state",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.state",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `state`: State of location where stop occurred. In 2024_annual_fio.csv this field is the column `state`."
+ },
+ {
+  "id": "KEY-FieldContact-zip",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.zip",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `zip`: ZIP code of location where stop occurred. In 2024_annual_fio.csv this field is the column `zip`."
+ },
+ {
+  "id": "KEY-FieldContact-stop_duration",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.stop_duration",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `stop_duration`: Length of stop (minutes). In 2024_annual_fio.csv this field is the column `duration`."
+ },
+ {
+  "id": "KEY-FieldContact-circumstance",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.circumstance",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `circumstance`: Circumstances of field contact (Observed, Encountered, Stopped). In 2024_annual_fio.csv this field is the column `circumstance`."
+ },
+ {
+  "id": "KEY-FieldContact-basis",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.basis",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `basis`: Basis for field contact (Encounter, Intel, Reasonable Suspicion, Probable Cause). In 2024_annual_fio.csv this field is the column `basis`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_year",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_year",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_year`: Vehicle year. In 2024_annual_fio.csv this field is the column `vehicle_year`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_state",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_state",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_state`: Vehicle registration state. In 2024_annual_fio.csv this field is the column `vehicle_state`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_model",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_model",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_model`: Vehicle model. In 2024_annual_fio.csv this field is the column `vehicle_mode`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_color",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_color",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_color`: Vehicle color. In 2024_annual_fio.csv this field is the column `vehicle_color`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_style",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_style",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_style`: Style of Vehicle (i.e. Sedan, Hatchback, Station Wagon, Convertible, Other). In 2024_annual_fio.csv this field is the column `vehicle_style`."
+ },
+ {
+  "id": "KEY-FieldContact-vehicle_type",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.vehicle_type",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `vehicle_type`: Type of Vehicle (i.e. Cargo Van, Passenger Car, Passenger Automobile, Passenger Van, SUV, Pick Up Truck). In 2024_annual_fio.csv this field is the column `vehicle_type`."
+ },
+ {
+  "id": "KEY-FieldContact-key_situation",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.key_situation",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `key_situation`: Event Statistics (Body Worn Camera, Home Invasion, Victim Stabbed, Homeland Security UASI, Victim Shot, Sex Offender, Elderly, Homeland Security, Shots Fired, Gang, Search Warrant, Juvenile Warrant Arrest, School, Licensed Premise, Other Agency/Unit Notified, Bicycle, CRU - Hate/Bias, Car Jack, Homeless, Gun, Drugs). In 2024_annual_fio.csv this field is the column `key_situations`."
+ },
+ {
+  "id": "KEY-FieldContact-narrative",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.narrative",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `narrative`: Reasons for Interrogation, Observation, Frisk, or Search. In 2024_annual_fio.csv this field is the column `contact_reason`."
+ },
+ {
+  "id": "KEY-FieldContact-weather",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact.weather",
+  "text": "FIO Data Key (Mark43), FieldContact table \u2013 field `weather`: Weather conditions. This field is not present in 2024_annual_fio.csv."
+ },
+ {
+  "id": "KEY-FieldContact_Name-fc_num",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.fc_num",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `fc_num`: Field Contact Number. In 2024_annual_fio_name.csv this field is the column `fc_num`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-contact_date",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.contact_date",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `contact_date`: Date of stop. In 2024_annual_fio_name.csv this field is the column `contact_date`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-sex",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.sex",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `sex`: Sex of the person FIO'd. In 2024_annual_fio_name.csv this field is the column `sex`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-race",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.race",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `race`: Race of the person stopped. In 2024_annual_fio_name.csv this field is the column `race`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-age",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.age",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `age`: Age of the person stopped. In 2024_annual_fio_name.csv this field is the column `age`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-build",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.build",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `build`: Body type of person stopped. In 2024_annual_fio_name.csv this field is the column `build`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-hair_style",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.hair_style",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `hair_style`: Hair style of person stopped. In 2024_annual_fio_name.csv this field is the column `hair_style`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-skin_tone",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.skin_tone",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `skin_tone`: Skin tone of person stopped. In 2024_annual_fio_name.csv this field is the column `skin_tone`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-ethnicity",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.ethnicity",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `ethnicity`: Of Hispanic Origin, Not of Hispanic Origin, or Unknown. In 2024_annual_fio_name.csv this field is the column `ethnicity`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-otherclothing",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.otherclothing",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `otherclothing`: Clothing Characteristics. This field is not present in 2024_annual_fio_name.csv."
+ },
+ {
+  "id": "KEY-FieldContact_Name-deceased",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.deceased",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `deceased`: Person is deceased. In 2024_annual_fio_name.csv this field is the column `deceased`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-license_state",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.license_state",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `license_state`: Person's license's state of issuance. In 2024_annual_fio_name.csv this field is the column `license_state`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-license_type",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.license_type",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `license_type`: Person's identification type. In 2024_annual_fio_name.csv this field is the column `license_type`."
+ },
+ {
+  "id": "KEY-FieldContact_Name-frisk/search",
+  "doc": "FIO Data Key (Mark43)",
+  "ref": "Data Key: FieldContact_Name.frisk/search",
+  "text": "FIO Data Key (Mark43), FieldContact_Name table \u2013 field `frisk/search`: Person was frisked/searched (if value is 1). In 2024_annual_fio_name.csv this field is the column `was_frisked`."
+ },
+ {
+  "id": "CARD-overview",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Overview",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Overview. The Boston Police Department (BPD) Field Interrogation and Observation (FIO) dataset records BPD's field contacts with individuals, including observations of vehicles only. It is published on Analyze Boston, the City of Boston's open data portal, by the Department of Innovation and Technology, with BPD as data provider, and is updated annually."
+ },
+ {
+  "id": "CARD-licence",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Licence",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Licence. The FIO dataset is released under the Open Data Commons Public Domain Dedication and License (PDDL). Analyze Boston states that this licence satisfies the Open Definition, so the data may be used, shared and adapted, including for research."
+ },
+ {
+  "id": "CARD-systems",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Record systems",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Record systems. FIO records come from three record systems: the Old RMS (2011 to 2015), the New RMS (June 2015 to September 2019) and Mark43 (from 29 September 2019). Each system has its own data key. The 2024 files used in this project come from Mark43."
+ },
+ {
+  "id": "CARD-tables",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Tables",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Tables. Each year has two tables. FieldContact has one row per contact between BPD and one or more individuals; the 2024 file is 2024_annual_fio.csv. FieldContact_Name has one row per individual involved in a contact; the 2024 file is 2024_annual_fio_name.csv. The tables are linked by the field contact number fc_num."
+ },
+ {
+  "id": "CARD-contact-level",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Contact-level fields",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Contact-level fields. Several fields describe the contact as a whole, not each person: circumstance, basis, contact_reason (the narrative), frisked, searchperson and summonsissued. For example, frisked is Y if any person in the contact was frisked, so per-person totals should not be calculated from these fields."
+ },
+ {
+  "id": "CARD-nulls",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: Missing values and revisions",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 Missing values and revisions. NULL means no entry was made for an optional field. The records come from a live database that may be revised, so analyses made at different times can differ slightly; a downloaded file should be treated as a static snapshot."
+ },
+ {
+  "id": "CARD-2024",
+  "doc": "Dataset card (project summary of the Analyze Boston page)",
+  "ref": "Dataset card: 2024 file profile",
+  "text": "Dataset card (project summary of the Analyze Boston page) \u2013 2024 file profile. The 2024 FieldContact file (2024_annual_fio.csv) has 4,860 records and 21 columns. By circumstance there are 3,042 Stopped (62.6%), 1,152 Encountered (23.7%) and 666 Observed (13.7%) records. The 2024 FieldContact_Name file has 8,832 rows, one per person. In the narratives, the publisher has masked the names of the people involved with XXX."
+ },
+ {
+  "id": "MODEL-purpose",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Purpose and intended use",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Purpose and intended use. The project classifies the free-text narrative of a 2024 FIO record (contact_reason) into its recorded circumstance: Stopped, Encountered or Observed. It is a research and teaching project for MAAI 902. It is not intended for operational policing, for decisions about individuals, or for judging whether a particular stop was lawful."
+ },
+ {
+  "id": "MODEL-data",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Data preparation",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Data preparation. Only 2024_annual_fio.csv was used; the person-level name file was excluded because it holds demographic data. Records went from 4,860 to 4,616 after removing 3 empty and 241 duplicate narratives. The data was split 70/15/15 with stratification: 3,231 training, 692 validation and 693 test narratives. Only the narrative text is used as input, because the basis column is strongly tied to the label."
+ },
+ {
+  "id": "MODEL-privacy",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Privacy redaction",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Privacy redaction. Before modelling, narratives were redacted: 8,883 officer-name mentions taken from the officer and supervisor name columns, 8,197 street addresses, 1,398 neighbourhood names, and further names (1,112) and places (1,991) found by spaCy named-entity recognition. Police and legal terms that spaCy mislabels as names, such as Det, Sgt, Pat and Larceny, were kept."
+ },
+ {
+  "id": "MODEL-results",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Results",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Results. On the 693-narrative test set, the TF-IDF + Logistic Regression baseline reached accuracy 0.775 and macro F1 0.693. Fine-tuned BERT (bert-base-uncased, 3 random seeds) reached accuracy 0.794 \u00b1 0.005 and macro F1 0.736 \u00b1 0.009 in the final run, and macro F1 0.732 \u00b1 0.014 in an earlier run; all 6 BERT models beat the baseline. The difference was not statistically significant on the best run (McNemar p = 0.35 in the final run, 0.17 in the earlier run)."
+ },
+ {
+  "id": "MODEL-classes",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Per-class results",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Per-class results. BERT's gains are in the minority classes: Encountered F1 rose from 0.620 to 0.652 and Observed F1 from 0.594 to 0.659, while Stopped stayed about the same (0.865 to 0.871). Observed remains the hardest class, with recall of only 0.574."
+ },
+ {
+  "id": "MODEL-ablation",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Keyword ablation",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Keyword ablation. Masking the label words stop, encounter and observe reduced macro F1 by 5.4 points for the baseline (0.693 to 0.639) and by 4.7 points for BERT (0.736 to 0.689). Both models use the keywords, but most of the signal comes from the wider context of the narrative."
+ },
+ {
+  "id": "MODEL-limits",
+  "doc": "Project model card (Phase 1\u20134 results)",
+  "ref": "Project model card: Limitations and bias",
+  "text": "Project model card (Phase 1\u20134 results) \u2013 Limitations and bias. Limitations: some recorded labels contradict the narrative, for example Encountered records describing a traffic stop, which caps achievable accuracy; 7.7% of narratives exceed 320 tokens and are truncated; only one year of data was used. The narratives contain racial descriptors such as white male, so models trained on them may pick up demographic signals."
+ }
+]

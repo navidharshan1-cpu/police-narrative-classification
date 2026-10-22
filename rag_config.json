@@ -1,0 +1,13 @@
+{
+ "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+ "llm": "Qwen/Qwen2.5-1.5B-Instruct",
+ "min_score": 0.25,
+ "k": 4,
+ "refusal": "The provided documents do not cover this question.",
+ "system_prompt": "You are an assistant for a research project on Boston Police Field Interrogation and Observation (FIO) records. Answer ONLY with information from the numbered sources provided. Cite every fact with its source number in square brackets, for example [S1]. If the sources do not contain the answer, reply exactly: \"The provided documents do not cover this question.\" Never provide personal information about any individual, including officers. Do not give legal advice. Answer in at most four sentences.",
+ "rule_terms": {
+  "Stopped": "field interaction/stop",
+  "Encountered": "encounter",
+  "Observed": "observation"
+ }
+}

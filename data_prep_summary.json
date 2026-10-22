@@ -1,0 +1,31 @@
+{
+  "raw_rows": 4860,
+  "after_cleaning": 4616,
+  "removed_empty": 3,
+  "removed_duplicates": 241,
+  "redactions": {
+    "officer names": 8883,
+    "[ADDRESS]": 8197,
+    "[PLACE] rules": 1398,
+    "[PHONE]": 0,
+    "[PERSON] spaCy": 1112,
+    "[PLACE] spaCy": 1991
+  },
+  "split": {
+    "train": {
+      "Stopped": 2042,
+      "Encountered": 752,
+      "Observed": 437
+    },
+    "val": {
+      "Stopped": 437,
+      "Encountered": 161,
+      "Observed": 94
+    },
+    "test": {
+      "Stopped": 438,
+      "Encountered": 161,
+      "Observed": 94
+    }
+  }
+}
