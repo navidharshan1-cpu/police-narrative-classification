@@ -1,14 +1,10 @@
-pandas
-numpy
-scipy
-scikit-learn
-matplotlib
-spacy
+# Packages for the Streamlit app (Streamlit Community Cloud reads this file).
+# CPU-only PyTorch keeps the install small; the notebooks' full list is in requirements-full.txt.
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
-transformers
-accelerate
-sentence-transformers
-faiss-cpu
-pypdf
-openpyxl
-streamlit
+transformers>=4.45
+sentence-transformers>=3.0
+huggingface_hub>=0.24
+streamlit>=1.37
+numpy
+pandas

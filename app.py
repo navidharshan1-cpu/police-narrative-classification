@@ -24,6 +24,8 @@ RAG_DIR = os.environ.get("RAG_DIR", "rag_outputs" if os.path.isdir("rag_outputs"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MAX_LEN = 320
 MAX_NEW_TOKENS = 220 if DEVICE == "cuda" else 160     # shorter answers keep CPU hosting responsive
+APP_MODE = os.environ.get("APP_MODE", "full").strip().lower()
+USE_LLM = APP_MODE != "lite"   # lite = no language model (for hosts with ~1–3 GB memory, e.g. Streamlit Cloud)
 if DEVICE == "cpu":
     torch.set_num_threads(max(1, os.cpu_count() or 1))
 
@@ -136,6 +138,11 @@ def answer(question, k=4, method="hybrid", style="Grounded", gate=True):
     hits = retrieve(question, k=k, method=method)
     if gate and max(s for _, s in hits) < cfg["min_score"]:
         return cfg["refusal"], hits, True
+    if not USE_LLM:                                   # lite mode: extractive answer from the best passage
+        i = hits[0][0]
+        words = chunks[i]["text"].split()
+        excerpt = " ".join(words[:120]) + (" …" if len(words) > 120 else "")
+        return f"Most relevant passage – **{chunks[i]['ref']}**:\n\n> {excerpt}", hits, False
     tok, llm = load_llm(cfg["llm"])
     enc = tok.apply_chat_template(build_messages(question, hits, style, cfg, chunks), add_generation_prompt=True,
                                   return_tensors="pt", return_dict=True).to(DEVICE)
@@ -199,7 +206,12 @@ with st.sidebar:
     st.header("Settings")
     method = st.selectbox("Retriever", ["hybrid", "dense", "bm25"], help="Hybrid = dense embeddings + BM25 combined")
     k = st.slider("Passages per answer", 2, 6, 4)
-    style = st.radio("Prompt", ["Grounded", "Basic"], help="Grounded: cite sources, refuse when not covered")
+    if USE_LLM:
+        style = st.radio("Prompt", ["Grounded", "Basic"], help="Grounded: cite sources, refuse when not covered")
+    else:
+        style = "Grounded"
+        st.caption("Lite mode: the assistant shows the most relevant document passage instead of a generated "
+                   "answer (no language model on this host).")
     gate = st.checkbox("Refuse when no relevant passage is found", value=True)
     st.divider()
     st.caption(f"Device: {'GPU – ' + torch.cuda.get_device_name(0) if DEVICE == 'cuda' else 'CPU (answers will be slow)'}")
@@ -216,7 +228,7 @@ if missing:
     st.error("Missing: " + ", ".join(missing) + ". Unzip bert_best_model.zip into `bert_best/` and "
              "rag_outputs.zip into `rag_outputs/` next to app.py, or set BERT_REPO to the Hugging Face model repo.")
     st.stop()
-if DEVICE == "cpu":
+if DEVICE == "cpu" and USE_LLM:
     st.info("Running on CPU: classification is quick, but generated answers take about 20–60 seconds.", icon="⏱️")
 
 tab_cls, tab_chat, tab_about = st.tabs(["🔎 Classify a narrative", "💬 Ask the documents", "ℹ️ About"])
@@ -256,7 +268,8 @@ with tab_cls:
 with tab_chat:
     st.subheader("Ask about the FIO data and policy")
     st.write("Answers come only from BPD Rule 323, the official FIO Data Key, and the project's dataset and model "
-             "cards. Each answer cites its sources.")
+             "cards. Each answer cites its sources." + ("" if USE_LLM else " In lite mode the best-matching passage is "
+             "shown directly; the full version generates answers with Qwen2.5-1.5B-Instruct."))
     st.caption("Try: *What is the difference between an observation and an encounter?* · *When may an officer frisk "
                "someone?* · *Which column holds the narrative?* · *How accurate is the classifier?*")
     if "chat" not in st.session_state:

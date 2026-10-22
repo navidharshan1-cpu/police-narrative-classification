@@ -83,7 +83,8 @@ All files are kept at the top level so the repository can be uploaded through th
 | `rag_retrieval_results.csv`, `rag_prompt_results.csv`, `rag_answers_log.csv` | RAG evaluation results and every generated answer |
 | `Dockerfile`, `space_README.md`, `space_requirements.txt` | Hugging Face Space configuration |
 | `.github/workflows/deploy-hf-space.yml` | Deploys the app to the Space on every push to `main` |
-| `requirements.txt` | Python packages for the notebooks and the app |
+| `requirements.txt` | Packages for the Streamlit app (used by Streamlit Community Cloud) |
+| `requirements-full.txt` | Full package list for the notebooks |
 
 ## Method
 
@@ -108,12 +109,30 @@ Everything runs in **Google Colab** on a free **T4 GPU** (Runtime → Change run
 3. **`3_Police_Narrative_App_Launcher.ipynb`** – finds both zips in Drive, starts the app and prints a public
    `trycloudflare.com` link.
 
-To run the app on your own machine instead: `pip install -r requirements.txt`, unzip `bert_best_model.zip` into a
+To run the app on your own machine instead: `pip install -r requirements-full.txt`, unzip `bert_best_model.zip` into a
 folder `bert_best/` next to `app.py`, then `streamlit run app.py` (a GPU is strongly recommended for the language
 model). The app reads `chunks.json` and `rag_config.json` from the same folder.
 
 The trained model (≈ 440 MB) and the raw data are not stored in this repository: GitHub limits files to 100 MB,
 and the raw records contain officer names.
+
+## Deployment (Streamlit Community Cloud – lite mode)
+
+Streamlit Community Cloud deploys `app.py` straight from this repository, but its free tier has only about 1–3 GB of
+memory – not enough for the 1.5B-parameter language model. Setting `APP_MODE = "lite"` runs the full BERT classifier
+and the same hybrid retrieval, and shows the best-matching Rule 323 or data-key passage with its citation instead of
+a generated answer. The fine-tuned BERT weights are downloaded at start-up from the Hugging Face model repository
+named in `BERT_REPO`.
+
+1. Upload `config.json`, `model.safetensors`, `tokenizer.json` and `tokenizer_config.json` (from
+   `bert_best_model.zip`) to a public Hugging Face model repository, e.g. `<hf-username>/police-narrative-bert`.
+2. At share.streamlit.io, sign in with GitHub → **Create app** → **Deploy a public app from GitHub**: this
+   repository, branch `main`, main file `app.py`. Under **Advanced settings** choose Python 3.11 and add the secrets
+   ```toml
+   BERT_REPO = "<hf-username>/police-narrative-bert"
+   APP_MODE = "lite"
+   ```
+3. Click **Deploy**. The first build takes about 5–10 minutes.
 
 ## Deployment (Hugging Face Spaces)
 
