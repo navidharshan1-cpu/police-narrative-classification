@@ -211,6 +211,17 @@ EXAMPLES = {
 }
 RULE_TERM = {"Stopped": "field interaction/stop", "Encountered": "encounter", "Observed": "observation"}
 
+# ------------------------------------------------------------------ results from the final notebook run (19 Oct 2026)
+CLASSES = ["Stopped", "Encountered", "Observed"]
+BERT_CLASS = {"Stopped": {"precision": 0.881, "recall": 0.861, "f1": 0.871},       # best-validation seed (43)
+              "Encountered": {"precision": 0.595, "recall": 0.720, "f1": 0.652},
+              "Observed": {"precision": 0.771, "recall": 0.574, "f1": 0.659}}
+BASE_CLASS = {"Stopped": {"precision": 0.847, "recall": 0.884, "f1": 0.865},
+              "Encountered": {"precision": 0.632, "recall": 0.609, "f1": 0.620},
+              "Observed": {"precision": 0.642, "recall": 0.553, "f1": 0.594}}
+CM_BASE = [[387, 40, 11], [45, 98, 18], [25, 17, 52]]   # rows = true class, columns = predicted
+CM_BERT = [[377, 54, 7], [36, 116, 9], [15, 25, 54]]
+
 # ------------------------------------------------------------------ layout
 st.title("Police Narrative Classifier & Policy Assistant")
 st.caption("Boston Police FIO records, 2024 · fine-tuned BERT classifier + retrieval-augmented assistant · "
@@ -255,6 +266,13 @@ with tab_cls:
     st.subheader("Classify an FIO narrative")
     st.write("Paste a narrative (or pick an example). BERT predicts the recorded circumstance; the assistant then "
              "explains what that category means under BPD Rule 323.")
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("BERT test accuracy", "79.4%", "+1.9 pts vs baseline")
+    m2.metric("BERT macro F1", "0.736", "+0.043 vs baseline")
+    m3.metric("Baseline accuracy", "77.5%", help="TF-IDF + Logistic Regression")
+    m4.metric("Test narratives", "693")
+    st.caption("Accuracy is measured on 693 held-out test narratives (mean of 3 training runs). The confidence shown "
+               "after classifying is the model's probability for that single narrative, not its accuracy.")
     choice = st.selectbox("Example", list(EXAMPLES))
     text = st.text_area("Narrative", value=EXAMPLES[choice], height=170,
                         placeholder="e.g. Officers stopped the vehicle for…")
@@ -274,6 +292,10 @@ with tab_cls:
             color=alt.condition(alt.datum.category == pred, alt.value("#e4572e"), alt.value("#9aa5b1")))
         text = bars.mark_text(align="left", dx=4).encode(text="label:N", color=alt.value("#888888"))
         st.altair_chart((bars + text).properties(height=150), use_container_width=True)
+        pc = BERT_CLASS[pred]
+        st.caption(f"How reliable is a **{pred}** prediction? On the 693 test narratives, when BERT predicts {pred} it "
+                   f"is right **{pc['precision']:.1%}** of the time (precision), and it finds **{pc['recall']:.1%}** of "
+                   f"all true {pred} narratives (recall). Overall test accuracy: **79.4%**.")
         if n_tok > MAX_LEN:
             st.warning(f"This narrative has {n_tok} tokens; only the first {MAX_LEN} were read by the model.")
         if probs.max() < 0.6:
@@ -333,17 +355,67 @@ Boston under the PDDL public-domain licence. 4,860 records → 4,616 after remov
 split 70/15/15. The person-level file with demographic data was not used. Narratives were redacted (officer names,
 addresses, neighbourhoods and other names/places) before modelling.
 """)
-    st.markdown("**Test-set results (693 narratives)**")
-    st.table(pd.DataFrame({
+    st.markdown("### 1. Overall test-set results (693 narratives)")
+    st.dataframe(pd.DataFrame({
         "Accuracy": ["0.775", "0.794 ± 0.005", "0.736", "0.758 ± 0.016"],
+        "Macro precision": ["0.707", "0.751 ± 0.006", "0.655", "0.700 ± 0.021"],
+        "Macro recall": ["0.682", "0.731 ± 0.012", "0.627", "0.682 ± 0.003"],
         "Macro F1": ["0.693", "0.736 ± 0.009", "0.639", "0.689 ± 0.012"]},
         index=["TF-IDF + Logistic Regression", "BERT (3 seeds)", "TF-IDF + LR, label words masked",
-               "BERT, label words masked"]))
-    st.markdown("""
-BERT improves macro F1 by 4.3 points, with the largest gains on *Encountered* and *Observed*. All 6 BERT models across
-two training runs beat the baseline (earlier run: 0.732 ± 0.014), but the difference is not statistically significant
-on a single test set (McNemar p = 0.35).
+               "BERT, label words masked (3 seeds)"]), use_container_width=True)
+    st.caption("BERT values are mean ± standard deviation over 3 random seeds. Macro scores weight the three "
+               "classes equally, so the small Observed class counts as much as Stopped.")
 
+    st.markdown("### 2. BERT – every training run")
+    st.dataframe(pd.DataFrame({
+        "Final run: accuracy": ["0.794", "0.789", "0.799", "0.794"],
+        "Final run: macro F1": ["0.738", "0.727", "0.744", "0.736"],
+        "Final run, words masked: macro F1": ["0.701", "0.690", "0.677", "0.689"],
+        "Earlier run: macro F1": ["0.716", "0.734", "0.745", "0.732"]},
+        index=["Seed 42", "Seed 43 (saved model)", "Seed 44", "Mean"]), use_container_width=True)
+    st.caption("All 6 BERT models across the two runs beat the baseline's macro F1 of 0.693. The app uses the seed with "
+               "the best validation score (seed 43).")
+
+    st.markdown("### 3. Per-class results")
+    rows = []
+    for c in CLASSES:
+        rows.append({"Class": c,
+                     "Baseline precision": BASE_CLASS[c]["precision"], "Baseline recall": BASE_CLASS[c]["recall"],
+                     "Baseline F1": BASE_CLASS[c]["f1"],
+                     "BERT precision": BERT_CLASS[c]["precision"], "BERT recall": BERT_CLASS[c]["recall"],
+                     "BERT F1": BERT_CLASS[c]["f1"], "F1 change": BERT_CLASS[c]["f1"] - BASE_CLASS[c]["f1"]})
+    st.dataframe(pd.DataFrame(rows).set_index("Class").style.format("{:.3f}"), use_container_width=True)
+    st.caption("Test-set support: Stopped 438, Encountered 161, Observed 94. BERT figures are for the saved model.")
+
+    st.markdown("### 4. Confusion matrices (rows = true class, columns = predicted)")
+    cm1, cm2 = st.columns(2)
+    with cm1:
+        st.markdown("**TF-IDF + Logistic Regression** – 537 of 693 correct (77.5%)")
+        st.dataframe(pd.DataFrame(CM_BASE, index=CLASSES, columns=CLASSES), use_container_width=True)
+    with cm2:
+        st.markdown("**BERT (seed 43)** – 547 of 693 correct (78.9%)")
+        st.dataframe(pd.DataFrame(CM_BERT, index=CLASSES, columns=CLASSES), use_container_width=True)
+    st.caption("McNemar test on the same 693 narratives: BERT alone is right on 51, the baseline alone on 41 "
+               "(p = 0.35) – the gain is consistent across runs but not statistically significant on one test set.")
+
+    st.markdown("### 5. RAG assistant")
+    r1, r2 = st.columns(2)
+    with r1:
+        st.markdown("**Retrieval – is the right passage found?** (18 questions)")
+        st.dataframe(pd.DataFrame({"hit@1": [0.833, 0.944, 0.889], "hit@3": [0.944, 0.944, 0.944],
+                                   "hit@5": [0.944, 1.000, 1.000], "MRR@10": [0.885, 0.956, 0.928]},
+                                  index=["Dense (MiniLM + FAISS)", "BM25", "Hybrid – used here"]),
+                     use_container_width=True)
+    with r2:
+        st.markdown("**Generated answers – Qwen2.5-1.5B-Instruct** (18 + 3 questions)")
+        st.dataframe(pd.DataFrame({"Correct": [1.000, 0.889], "Cites sources": [0.000, 0.444],
+                                   "Grounded": [0.483, 0.708], "Refused out-of-scope": [0.000, 1.000]},
+                                  index=["Basic prompt", "Grounded prompt"]), use_container_width=True)
+    st.caption("hit@k = share of questions whose answer passage is in the top k results. The grounded prompt refused all "
+               "out-of-scope questions (including a request for an officer's address); its two wrong answers "
+               "contradicted their own source passage.")
+
+    st.markdown("""
 **Limitations.** Some recorded labels contradict the narrative; *Observed* recall is only 0.57; long narratives are
 truncated at 320 tokens; one year of data; the narratives contain racial descriptors that a model can learn from.
 
