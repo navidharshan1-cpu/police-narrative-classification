@@ -21,6 +21,7 @@ import torch
 BERT_DIR = os.environ.get("BERT_DIR", "bert_best")
 BERT_REPO = os.environ.get("BERT_REPO", "")          # e.g. "username/police-narrative-bert" on Hugging Face
 BERT_GDRIVE_ID = os.environ.get("BERT_GDRIVE_ID", "")  # alternative: file ID of a public bert_best_model.zip on Google Drive
+LM_REPO = os.environ.get("LM_REPO", "dharshan3119/fio-narrative-distilgpt2")  # fine-tuned DistilGPT-2 (early-stopped)
 RAG_DIR = os.environ.get("RAG_DIR", "rag_outputs" if os.path.isdir("rag_outputs") else ".")
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MAX_LEN = 320
@@ -34,6 +35,34 @@ st.set_page_config(page_title="Police Narrative Classifier", page_icon="🔎", l
 
 
 # ------------------------------------------------------------------ loading (cached once per session)
+@st.cache_resource(show_spinner="Downloading the fine-tuned narrative model (≈330 MB, first time only)…")
+def load_narrative_lm():
+    from huggingface_hub import snapshot_download
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    path = snapshot_download(LM_REPO, token=os.environ.get("HF_TOKEN") or None)
+    tok = AutoTokenizer.from_pretrained(path)
+    model = AutoModelForCausalLM.from_pretrained(path).to(DEVICE).eval()
+    info = {}
+    if os.path.exists(os.path.join(path, "training_info.json")):
+        info = json.load(open(os.path.join(path, "training_info.json")))
+    return tok, model, info, path
+
+
+@torch.no_grad()
+def lm_generate(prompt, max_new_tokens, temperature, top_p, seed):
+    tok, model, _, _ = load_narrative_lm()
+    torch.manual_seed(seed)
+    enc = tok(prompt, return_tensors="pt").to(DEVICE)
+    out = model.generate(**enc, max_new_tokens=max_new_tokens, do_sample=True, temperature=temperature, top_p=top_p,
+                         repetition_penalty=1.2, no_repeat_ngram_size=3, pad_token_id=tok.eos_token_id)
+    cont = " ".join(tok.decode(out[0][enc["input_ids"].shape[1]:], skip_special_tokens=True).split())
+    p_ids = enc["input_ids"]
+    c_ids = tok(" " + cont, return_tensors="pt")["input_ids"].to(DEVICE)
+    ids = torch.cat([p_ids, c_ids], dim=1)
+    labels = ids.clone(); labels[:, : p_ids.shape[1]] = -100
+    ppl = math.exp(model(input_ids=ids, labels=labels).loss.item()) if c_ids.shape[1] else float("nan")
+    return cont, ppl
+
 @st.cache_resource(show_spinner="Downloading the fine-tuned BERT model…")
 def bert_path():
     if os.path.exists(os.path.join(BERT_DIR, "config.json")):
@@ -262,7 +291,8 @@ if missing:
 if DEVICE == "cpu" and USE_LLM:
     st.info("Running on CPU: classification is quick, but generated answers take about 20–60 seconds.", icon="⏱️")
 
-tab_cls, tab_chat, tab_about = st.tabs(["🔎 Classify a narrative", "💬 Ask the documents", "ℹ️ About"])
+tab_cls, tab_gen, tab_chat, tab_about = st.tabs(["🔎 Classify a narrative", "✍️ Narrative generator (fine-tuned LM)",
+                                                 "💬 Ask the documents", "ℹ️ About"])
 
 # ---- Tab 1
 with tab_cls:
@@ -333,6 +363,66 @@ with tab_cls:
     if st.session_state.get("scores") and st.button("Reset session accuracy"):
         st.session_state.scores = []
         st.rerun()
+
+# ---- Tab: fine-tuned language model
+GEN_EXAMPLES = [
+    "On Monday at approximately 4:00PM officers observed",
+    "Officers conducted a traffic stop of a vehicle",
+    "While on patrol in the area, officers encountered a group of individuals",
+]
+with tab_gen:
+    st.subheader("Fine-tuned DistilGPT-2 – FIO narrative generator")
+    st.write("DistilGPT-2 fine-tuned on 3,683 redacted FIO narratives with early stopping. Type the start of a "
+             "narrative and the model continues it in the style of the reports; BERT then classifies the result.")
+    st.warning("Generated text is **synthetic**. It is produced word by word from learned patterns and describes "
+               "no real person or event. It must not be used as, or presented as, a police record.", icon="⚠️")
+    g1, g2, g3, g4 = st.columns(4)
+    g1.metric("Test perplexity", "10.0", "-68.6 vs base (78.6)", delta_color="inverse")
+    g2.metric("Next-token accuracy", "52.9%", "+21.9 pts vs base")
+    g3.metric("Top-5 accuracy", "74.7%", "+26.1 pts vs base")
+    g4.metric("ROUGE-L F1", "0.179", "+0.080 vs base")
+    gp = st.selectbox("Example start", ["(write your own)"] + GEN_EXAMPLES, key="gen_ex")
+    prompt = st.text_area("Start of the narrative", value="" if gp == "(write your own)" else gp, height=90,
+                          key=f"gen_prompt_{gp}")
+    c1, c2, c3, c4 = st.columns(4)
+    max_new = c1.slider("Length (tokens)", 20, 120, 60, 10)
+    temperature = c2.slider("Temperature", 0.3, 1.5, 0.8, 0.1, help="Lower = safer, more typical wording")
+    top_p = c3.slider("Top-p", 0.5, 1.0, 0.9, 0.05)
+    seed = c4.number_input("Seed", 0, 9999, 42)
+    if st.button("Generate", type="primary", disabled=not prompt.strip()):
+        try:
+            with st.spinner("Generating…"):
+                cont, ppl = lm_generate(prompt.strip(), max_new, temperature, top_p, int(seed))
+        except Exception as e:
+            st.error(f"Could not load the fine-tuned model from {LM_REPO}: {e.__class__.__name__}: {e}")
+        else:
+            st.markdown(f"**{prompt.strip()}** {cont}")
+            st.caption(f"Perplexity of this continuation under the fine-tuned model: {ppl:.1f} "
+                       "(lower = more typical of FIO narratives). Synthetic text – not a real record.")
+            try:
+                labels, probs, _ = classify(prompt.strip() + " " + cont)
+                i = int(np.argmax(probs))
+                st.info(f"BERT classifies this generated narrative as **{labels[i]}** "
+                        f"(confidence {probs[i]:.0%}).", icon="🔎")
+            except Exception:
+                pass
+    with st.expander("How this model was trained and evaluated"):
+        st.markdown("""
+* **Base model:** DistilGPT-2 (82 M parameters), causal language modelling on 128-token blocks.
+* **Data:** 4,603 cleaned, redacted narratives split 80/10/10 → 3,683 train / 460 validation / 460 test.
+* **Settings:** learning rate 1e-4 (AdamW), batch 8, 10% warm-up, weight decay 0.01, up to 10 epochs,
+  validation every quarter epoch, **early stopping** (patience 3) and the best checkpoint restored.
+* **Result:** stopped after 4.74 epochs; best validation loss 2.276 at epoch 3.99. Train/test loss gap +0.44,
+  so the model generalises rather than memorising.
+""")
+        st.dataframe(pd.DataFrame({
+            "Base DistilGPT-2": [78.6, 0.309, 0.486, 0.100, 0.004, "3%", "17%", 0.597],
+            "Fine-tuned": [10.0, 0.529, 0.747, 0.179, 0.038, "99%", "49%", 0.322]},
+            index=["Test perplexity (lower = better)", "Next-token accuracy (top-1)", "Next-token accuracy (top-5)",
+                   "ROUGE-L F1", "BLEU-4", "Domain-style rate", "Ends naturally", "Distinct-2 (variety)"]).astype(str),
+            use_container_width=True)
+        st.caption("Completions scored on 150 test narratives (first 15 words given, rest generated). Lower variety "
+                   "(distinct-2) reflects the repetitive, formulaic wording of real FIO reports.")
 
 # ---- Tab 2
 with tab_chat:
